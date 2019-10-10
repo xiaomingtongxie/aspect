@@ -14,13 +14,6 @@ import java.time.LocalDateTime;
 @EnableScheduling
 public class TestJob {
 
-    @Bean
-    public TaskScheduler taskScheduler() {
-        ThreadPoolTaskScheduler taskScheduler = new ThreadPoolTaskScheduler();
-        taskScheduler.initialize();
-        taskScheduler.setPoolSize(50);
-        return taskScheduler;
-    }
 
     @Scheduled(cron = "0/5 * * * * ?")
     @SchedulerLock(name = "test1-task",lockAtMostForString = "PT28M",lockAtLeastForString = "PT28M")
