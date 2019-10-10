@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 
 @Component
 @EnableScheduling
-public class TestJob {
+public class TestJob01 {
 
     @Bean
     public TaskScheduler taskScheduler() {
@@ -23,10 +23,10 @@ public class TestJob {
     }
 
     @Scheduled(cron = "0/5 * * * * ?")
-    @SchedulerLock(name = "test1-task",lockAtMostForString = "PT28M",lockAtLeastForString = "PT28M")
+    @SchedulerLock(name = "test4-task",lockAtMostForString = "PT28M",lockAtLeastForString = "PT28M")
     public void execute1(){
         String curName = Thread.currentThread().getName() ;
-        System.out.println("当前时间:"+LocalDateTime.now()+"  任务execute1对应的线程名: "+curName);
+        System.out.println("当前时间:"+LocalDateTime.now()+"  任务execute4对应的线程名: "+curName);
         try {
             Thread.sleep(1000);
         } catch (Exception e) {
@@ -36,11 +36,11 @@ public class TestJob {
     }
 
     @Scheduled(cron = "0/5 * * * * ?")
-    @SchedulerLock(name = "test2-task",lockAtMostForString = "PT28M",lockAtLeastForString = "PT28M")
+    @SchedulerLock(name = "test5-task",lockAtMostForString = "PT28M",lockAtLeastForString = "PT28M")
     public void execute2(){
 
         String curName = Thread.currentThread().getName() ;
-        System.out.println("当前时间:"+ LocalDateTime.now()+"  任务execute2对应的线程名: "+curName);
+        System.out.println("当前时间:"+ LocalDateTime.now()+"  任务execute5对应的线程名: "+curName);
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
@@ -49,11 +49,11 @@ public class TestJob {
     }
 
     @Scheduled(cron = "0/10 * * * * ?")
-    @SchedulerLock(name = "test3-task",lockAtMostForString = "PT28M",lockAtLeastForString = "PT28M")
+    @SchedulerLock(name = "test6-task",lockAtMostForString = "PT28M",lockAtLeastForString = "PT28M")
     public void execute3(){
 
         String curName = Thread.currentThread().getName() ;
-        System.out.println("当前时间:"+ LocalDateTime.now()+"  任务execute3对应的线程名: "+curName);
+        System.out.println("当前时间:"+ LocalDateTime.now()+"  任务execute6对应的线程名: "+curName);
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {

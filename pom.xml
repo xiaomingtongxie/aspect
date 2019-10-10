@@ -58,6 +58,14 @@
             <version>LATEST</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/net.javacrumbs.shedlock/shedlock-core -->
+        <dependency>
+            <groupId>net.javacrumbs.shedlock</groupId>
+            <artifactId>shedlock-core</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+
+
         <!-- test dependency -->
         <dependency>
             <groupId>org.mockito</groupId>
