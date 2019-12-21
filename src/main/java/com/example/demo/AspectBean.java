@@ -6,6 +6,7 @@ public class AspectBean {
     private int age;
     private String birthday;
     private int sex;
+    
 
     public String getName() {
         return name;
