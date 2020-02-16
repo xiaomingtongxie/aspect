@@ -15,6 +15,8 @@ public class OperateFactory {
                 return new OperatorPlus();
             case MINUS:
                 return new OperatorMinus();
+            case AVERAGECAPICALINTERREST:
+                return new OperatorAverageCapicalAndInterest();
         }
         throw new AssertionError("unknown operation. ");
 

@@ -4,7 +4,8 @@ public enum Operation {
     PLUS("+", "plus"),
     MINUS("-", "minus"),
     TIMES("*", "times"),
-    DIVIDE("/", "divide");
+    DIVIDE("/", "divide"),
+    AVERAGECAPICALINTERREST("avg","average");
 
     private String operator;
     private String desc;
