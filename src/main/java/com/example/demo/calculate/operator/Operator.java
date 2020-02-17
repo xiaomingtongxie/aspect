@@ -5,16 +5,16 @@ import com.example.demo.calculate.Enum.Operation;
 
 public class Operator {
 
-    private double year;
-    private double totalmoney;
+    private Integer year;
+    private Double totalmoney;
 
     private Operation operation;
 
-    public double getYear() {
+    public Integer getYear() {
         return year;
     }
 
-    public void setYear(double year) {
+    public void setYear(Integer year) {
         this.year = year;
     }
 
