@@ -3,15 +3,40 @@ package com.example.demo.calculate.operator;
 import com.example.demo.calculate.Enum.Operation;
 import com.example.demo.calculate.factory.OperateFactory;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 public class TestOperator {
 
     public static void main(String[] args) {
 
-        double year =30;
-        double totalmoney = 106*10000;
-        double totalgjjmoney = 50*10000;
-        OperatorAverageCapicalAndInterest operator = (OperatorAverageCapicalAndInterest)OperateFactory.getOperatoreInstance(Operation.AVERAGECAPICALINTERREST);
+        double year = 30;
+        double totalmoney = 106 * 10000;
+        double totalgjjmoney = 50 * 10000;
+        OperatorAverageCapicalAndInterest operator = (OperatorAverageCapicalAndInterest) OperateFactory.getOperatoreInstance(Operation.AVERAGECAPICALINTERREST);
 
-        System.out.printf("result:"+(operator.execute(totalmoney,year)+operator.executegjj(totalgjjmoney,year)));
+        System.out.printf("result:" + (operator.execute(totalmoney, year) + operator.executegjj(totalgjjmoney, year)));
+
+        Operator operator1 = new Operator();
+        operator1.setYear(2019);
+        operator1.setTotalmoney(2019);
+        Operator operator2 = new Operator();
+        operator2.setYear(2020);
+        operator2.setTotalmoney(2020);
+
+        Operator operator3 = new Operator();
+        operator3.setYear(2020);
+        operator3.setTotalmoney(2020);
+        List<Operator> operators = new ArrayList<>();
+        operators.add(operator1);
+        operators.add(operator2);
+        operators.add(operator3);
+
+
+        Map map = operators.stream().collect(Collectors.groupingBy(o -> o.getYear(), Collectors.counting()));
+        System.out.println(map);
+
     }
 }
