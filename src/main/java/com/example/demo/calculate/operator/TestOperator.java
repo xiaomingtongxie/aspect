@@ -17,7 +17,7 @@ public class TestOperator {
         double totalgjjmoney = 50 * 10000;
         OperatorAverageCapicalAndInterest operator = (OperatorAverageCapicalAndInterest) OperateFactory.getOperatoreInstance(Operation.AVERAGECAPICALINTERREST);
 
-        System.out.printf("result:" + (operator.execute(totalmoney, year) + operator.executegjj(totalgjjmoney, year)));
+        System.out.println("等额本息每月还款:" + (operator.execute(totalmoney, year) + operator.executegjj(totalgjjmoney, year)));
 
         Operator operator1 = new Operator();
         operator1.setYear(Integer.valueOf(2019));
