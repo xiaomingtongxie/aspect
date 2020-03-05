@@ -13,7 +13,7 @@ public class TestOperator {
     public static void main(String[] args) {
 
         Integer year = Integer.valueOf(30);
-        double totalmoney = 106 * 10000;
+        double totalmoney = 100 * 10000;
         double totalgjjmoney = 50 * 10000;
         OperatorAverageCapicalAndInterest operator = (OperatorAverageCapicalAndInterest) OperateFactory.getOperatoreInstance(Operation.AVERAGECAPICALINTERREST);
 
@@ -38,13 +38,15 @@ public class TestOperator {
       Map<Integer,Long> map = operators.parallelStream().collect(
                 Collectors.groupingBy(o -> o.getYear(), Collectors.counting()));
 
+//
+//        for (Map.Entry<Integer,Long> entry : map.entrySet()){
+//            if (entry.getValue()>=2){
+//                System.out.println("有分组后大于2的organId.");
+//            }
+//        }
+//        System.out.println(map);
 
-        for (Map.Entry<Integer,Long> entry : map.entrySet()){
-            if (entry.getValue()>=2){
-                System.out.println("有分组后大于2的organId.");
-            }
-        }
-        System.out.println(map);
+
 
     }
 }
