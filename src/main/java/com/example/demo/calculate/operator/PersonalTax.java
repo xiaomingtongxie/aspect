@@ -104,6 +104,8 @@ public class PersonalTax {
         salarylist.add(BigDecimal.valueOf(80000));
         salarylist.add(BigDecimal.valueOf(100000));
 
+
+
         for(BigDecimal bigDecimal :salarylist){
         System.out.println("工资===》"+bigDecimal+"====="+" 应缴纳个税："+calculateTax(bigDecimal));
 
