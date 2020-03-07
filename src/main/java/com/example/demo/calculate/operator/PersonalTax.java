@@ -90,7 +90,9 @@ public class PersonalTax {
         List<BigDecimal> salarylist = new ArrayList<>();
         salarylist.add(BigDecimal.valueOf(5000));
         salarylist.add(BigDecimal.valueOf(8000));
+        salarylist.add(BigDecimal.valueOf(15450));
         salarylist.add(BigDecimal.valueOf(17000));
+        salarylist.add(BigDecimal.valueOf(17867));
         salarylist.add(BigDecimal.valueOf(30000));
         salarylist.add(BigDecimal.valueOf(28750));
         salarylist.add(BigDecimal.valueOf(40000));
