@@ -6,9 +6,7 @@ import com.example.demo.service.AspectService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -23,14 +21,18 @@ public class AspectController {
     @Autowired
     private AspectService aspectService;
 
-    @GetMapping(value = "/testaspect")
-    public String testAspect() throws InterruptedException {
-
+    @GetMapping(value = "/getaspect")
+    public String getAspect(String name, Integer age) throws InterruptedException {
         AspectBean aspectBean = new AspectBean();
-        aspectBean.setAge(18);
+        aspectBean.setAge(age);
         aspectBean.setBirthday(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date().getTime()));
         aspectBean.setSex(1);
-        aspectBean.setName("aspect");
+        aspectBean.setName(name);
+        return JSON.toJSONString(aspectService.testAspect(aspectBean));
+    }
+
+    @PostMapping(value = "/postaspect")
+    public String postAspect(@RequestBody AspectBean aspectBean) throws InterruptedException {
         return JSON.toJSONString(aspectService.testAspect(aspectBean));
     }
 
