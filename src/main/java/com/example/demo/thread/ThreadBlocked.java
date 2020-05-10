@@ -22,11 +22,11 @@ public class ThreadBlocked extends Thread {
 
     public static void main(String[] args) throws InterruptedException {
         byte[] lock = new byte[0];
-        ThreadNewRunable threadNewRunable = new ThreadNewRunable(lock);
-        threadNewRunable.start();
-        ThreadNewRunable threadNewRunable1 = new ThreadNewRunable(lock);
-        threadNewRunable1.start();
+        ThreadBlocked threadBlocked = new ThreadBlocked(lock);
+        threadBlocked.start();
+        ThreadBlocked threadBlocked1 = new ThreadBlocked(lock);
+        threadBlocked1.start();
         Thread.sleep(1000);
-        System.out.println("threadStatu1-blocked : " + threadNewRunable1.getState());
+        System.out.println("threadBlocked1-blocked : " + threadBlocked1.getState());
     }
 }

@@ -14,13 +14,14 @@ public class ThreadNewRunable extends Thread {
     @Override
     public void run() {
 
-        synchronized (lock) {
-            try {
-                Thread.sleep(10000);// 休眠十秒，防止过快结束
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+        // doNothing
+//        synchronized (lock) {
+//            try {
+//                Thread.sleep(1000);// 休眠十秒，防止过快结束
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//        }
     }
 
     public static void main(String[] args) throws InterruptedException {
