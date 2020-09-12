@@ -13,18 +13,18 @@ public class TestBeancreateProcess {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(App.class);
 
-//        System.out.println(ac.getBean(X.class));
-        System.out.println(ac.getBean(Y.class));
+        System.out.println(ac.getBean(X.class));
+//        System.out.println(ac.getBean(Y.class));
 //        System.out.println(ac.getBean(App.class));
 
         /**
          *  bean 创建过程伪代码
          */
 
-        List<Class> list= null;
-        for (Class aClass : list) {
-            GenericBeanDefinition genericBeanDefinition = new GenericBeanDefinition();
-            genericBeanDefinition.setScope("singleton");
-        }
+//        List<Class> list= null;
+//        for (Class aClass : list) {
+//            GenericBeanDefinition genericBeanDefinition = new GenericBeanDefinition();
+//            genericBeanDefinition.setScope("singleton");
+//        }
     }
 }
