@@ -13,11 +13,13 @@ public class TestOperator {
     public static void main(String[] args) {
 
         Integer year = Integer.valueOf(30);
-        double totalmoney = 100 * 10000;
+        double totalmoney = 105 * 10000;
         double totalgjjmoney = 50 * 10000;
         OperatorAverageCapicalAndInterest operator = (OperatorAverageCapicalAndInterest) OperateFactory.getOperatoreInstance(Operation.AVERAGECAPICALINTERREST);
 
-        System.out.println("等额本息每月还款:" + (operator.execute(totalmoney, year) ));
+        System.out.println("等额本息商业贷款每月还款:" + (operator.execute(totalmoney, year) ));
+        System.out.println("等额本息公积金贷款每月还款:" + (operator.executegjj(totalgjjmoney, year) ));
+
 //        + operator.executegjj(totalgjjmoney, year)
 
 //        Operator operator1 = new Operator();
