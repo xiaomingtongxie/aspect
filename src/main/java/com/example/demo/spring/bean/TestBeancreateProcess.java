@@ -6,14 +6,23 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import java.util.List;
 
 /**
- *  测试 spring bean 创建过程
+ * 测试 spring bean 创建过程
  */
 public class TestBeancreateProcess {
 
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(App.class);
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext();
 
-        System.out.println(ac.getBean(X.class));
+//        ac.getBeanFactory().registerSingleton("zzz", new Z());
+
+        ac.addBeanFactoryPostProcessor(new Z());
+        ac.addBeanFactoryPostProcessor(new E());
+        ac.register(App.class);
+        ac.refresh();
+
+//        ac.getBean("zzz");
+
+//        System.out.println(ac.getBean(X.class));
 //        System.out.println(ac.getBean(Y.class));
 //        System.out.println(ac.getBean(App.class));
 

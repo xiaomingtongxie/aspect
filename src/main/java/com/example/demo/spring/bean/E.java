@@ -7,19 +7,20 @@ import org.springframework.beans.factory.support.BeanDefinitionRegistryPostProce
 import org.springframework.stereotype.Component;
 
 @Component
-public class Y  implements BeanDefinitionRegistryPostProcessor {
+public class E implements BeanDefinitionRegistryPostProcessor {
 
-    public Y() {
+    public E() {
         super();
     }
 
     @Override
     public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry beanDefinitionRegistry) throws BeansException {
-        System.out.println("y " +"BeanDefinitionRegistry 实现方法" );
+        System.out.println("e " + "BeanDefinitionRegistryPostProcessor");
     }
 
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory configurableListableBeanFactory) throws BeansException {
-        System.out.println("y " + "beanFactory 实现方法");
+        System.out.println("e " + "postProcessBeanFactory");
+
     }
 }
