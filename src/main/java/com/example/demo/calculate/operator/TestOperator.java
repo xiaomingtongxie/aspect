@@ -13,7 +13,7 @@ public class TestOperator {
     public static void main(String[] args) {
 
         Integer year = Integer.valueOf(30);
-        double totalmoney = 105 * 10000;
+        double totalmoney = 106 * 10000;
         double totalgjjmoney = 50 * 10000;
         OperatorAverageCapicalAndInterest operator = (OperatorAverageCapicalAndInterest) OperateFactory.getOperatoreInstance(Operation.AVERAGECAPICALINTERREST);
 

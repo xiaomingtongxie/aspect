@@ -14,7 +14,7 @@ public class OperatorAverageCapicalAndInterest extends Operator {
 
 
     static {
-        lrprate = 0.0565;
+        lrprate = 0.0545;
         actrualrate = lrprate / ONE_YEAR_MONTH;
         actralgjjrate = GJJ_RATE / ONE_YEAR_MONTH;
     }
