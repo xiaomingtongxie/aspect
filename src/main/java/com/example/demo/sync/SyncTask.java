@@ -31,7 +31,7 @@ public class SyncTask {
         );
         try {
             // 必须在future.complete之前sleep 异步线程才能执行
-            Thread.sleep(200);
+//            Thread.sleep(200);
             future.complete("执行成功！");
             // 这里直接返回前端结果 ,这里sleep无效
             Thread.sleep(2000);
@@ -42,7 +42,7 @@ public class SyncTask {
             // do nothing
         }
         // 这里主线程不休眠的话，异步线程池会秒结束，这个不知道什么机制，需要研究一下，这里sleep无效
-        Thread.sleep(2000);
+//        Thread.sleep(2000);
         return "方法结束";
     }
 

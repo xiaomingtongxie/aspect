@@ -49,4 +49,8 @@ public class AspectBean {
                 ", sex=" + sex +
                 '}';
     }
+
+    public static void main(String[] args) {
+        Object o = new Object();
+    }
 }
