@@ -41,6 +41,12 @@ public class Tread_countDownLatch {
                 }
             }
             System.out.println("thread2: 结束,当前容器大小：" + treadAddAndSize.size());
+//            // 在线程2 结束后再让线程1 阻塞
+//            try {
+//                countDownLatch.await();
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
             // 通知t1继续执行
         }, "t2").start();
         try {
