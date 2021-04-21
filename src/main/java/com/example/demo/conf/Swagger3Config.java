@@ -3,10 +3,8 @@ package com.example.demo.conf;
 
 import com.github.xiaoymin.knife4j.spring.annotations.EnableKnife4j;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.web.context.request.async.DeferredResult;
 import springfox.documentation.builders.*;
 import springfox.documentation.oas.annotations.EnableOpenApi;
@@ -82,7 +80,7 @@ public class Swagger3Config {
                 .title("aspect模块")
                 .description("测试swagger3.0增强")
                 .termsOfServiceUrl("https://www.kpmg.com/")
-                .contact(new Contact("aspect模块", "", "xmtx.2015@gmail.com"))
+                .contact(new Contact("xmtx", "", "xmtx.2015@gmail.com"))
                 .version("1.0")
                 .build();
     }
