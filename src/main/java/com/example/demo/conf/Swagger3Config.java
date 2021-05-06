@@ -27,59 +27,28 @@ import java.util.List;
 @EnableKnife4j
 public class Swagger3Config {
 
-//    /**
-//     * swagger3的配置文件
-//     */
-//    @Bean
-//    public Docket createRestApi() {
-//        return new Docket(DocumentationType.OAS_30)
-//                .apiInfo(apiInfo())
-//                .groupName("小明童鞋demo")
-//                .select()
-//                .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
-//                .paths(PathSelectors.any())
-//                .build()
-//                .globalRequestParameters(getGlobalRequestParameters())
-//                .globalResponses(HttpMethod.GET, getGlobalResponseMessage())
-//                .globalResponses(HttpMethod.POST, getGlobalResponseMessage())
-//                .globalResponses(HttpMethod.DELETE, getGlobalResponseMessage())
-//                .globalResponses(HttpMethod.PUT, getGlobalResponseMessage());
-//    }
-//
-//    /**
-//     * 构建 api文档的详细信息函数,注意这里的注解引用的是哪个
-//     */
-//    private ApiInfo apiInfo() {
-//        // 获取工程名称
-//        String projectName = "小明童鞋demo";
-//        return new ApiInfoBuilder()
-//                .title(projectName.substring(projectName.lastIndexOf("\\") + 1) + " API接口文档")
-//                .contact(new Contact("小明童鞋demo", "", "xmtx.2015@gmail.com"))
-//                .version("1.5")
-//                .description("API文档")
-//                .build();
-//    }
-
     @Bean
     public Docket systemApi() {
         return new Docket(DocumentationType.SWAGGER_2)
-                .groupName("aspect模块")
+                .groupName("小明童鞋demo")
                 .genericModelSubstitutes(DeferredResult.class).useDefaultResponseMessages(false).forCodeGeneration(true)
                 .select()
                 .apis(RequestHandlerSelectors.withClassAnnotation(Api.class))
+                // 这里写controller 所在的路径
                 .apis(RequestHandlerSelectors.basePackage("com.example.demo.controller"))
                 .paths(PathSelectors.any()).build()
                 .pathMapping("/")
-                .securitySchemes(Collections.singletonList(securitySchema()))
-                .securityContexts(Collections.singletonList(securityContext()))
+                // 暂时不加权限认证
+//                .securitySchemes(Collections.singletonList(securitySchema()))
+//                .securityContexts(Collections.singletonList(securityContext()))
                 .apiInfo(systemApiInfo());
     }
 
     private ApiInfo systemApiInfo() {
         return new ApiInfoBuilder()
-                .title("aspect模块")
-                .description("测试swagger3.0增强")
-                .termsOfServiceUrl("https://www.kpmg.com/")
+                .title("小明童鞋demo")
+                .description("测试swagger整合knife4j生成离线接口文档")
+                .termsOfServiceUrl("https://my.oschina.net/xiaomingnevermind")
                 .contact(new Contact("xmtx", "", "xmtx.2015@gmail.com"))
                 .version("1.0")
                 .build();
@@ -119,34 +88,30 @@ public class Swagger3Config {
         return responseList;
     }
 
+//
+//    private OAuth securitySchema() {
+//
+//        List<AuthorizationScope> authorizationScopeList = new ArrayList();
+//        List<GrantType> grantTypes = new ArrayList();
+//        GrantType creGrant = new ResourceOwnerPasswordCredentialsGrant("/oauth/token");
+//
+//        grantTypes.add(creGrant);
+//
+//        return new OAuth("oauth2schema", authorizationScopeList, grantTypes);
+//
+//    }
 
-    private OAuth securitySchema() {
-
-        List<AuthorizationScope> authorizationScopeList = new ArrayList();
-        //authorizationScopeList.add(new AuthorizationScope("all", "do ang"));
-
-        List<GrantType> grantTypes = new ArrayList();
-        GrantType creGrant = new ResourceOwnerPasswordCredentialsGrant("/oauth/token");
-
-        grantTypes.add(creGrant);
-
-        return new OAuth("oauth2schema", authorizationScopeList, grantTypes);
-
-    }
-
-
-    private SecurityContext securityContext() {
-        return SecurityContext.builder()
-                .securityReferences(defaultAuth())
-                .forPaths(PathSelectors.ant("/v1/api/**"))
-                .build();
-    }
+//
+//    private SecurityContext securityContext() {
+//        return SecurityContext.builder()
+//                .securityReferences(defaultAuth())
+//                .forPaths(PathSelectors.ant("/v1/api/**"))
+//                .build();
+//    }
 
     private List<SecurityReference> defaultAuth() {
 
         final AuthorizationScope[] authorizationScopes = new AuthorizationScope[0];
-        //authorizationScopes[0] = new AuthorizationScope("all", "read all");
-
         return Collections.singletonList(new SecurityReference("oauth2schema", authorizationScopes));
     }
 }

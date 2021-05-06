@@ -10,11 +10,12 @@ import java.lang.ref.WeakReference;
 public class Test_WeakReference {
 
     public static void main(String[] args) {
-        WeakReference<AspectBean> w = new WeakReference<>(new AspectBean());
-
-        System.out.println(w.get());
-        System.gc();
-        System.out.println(w.get());
+//        WeakReference<AspectBean> w = new WeakReference<>(new AspectBean());
+//
+//        System.out.println(w.get());
+//        System.gc();
+//        // 经理过gc之后，这里便拿不到对象的值了
+//        System.out.println(w.get());
 
 
         ThreadLocal<AspectBean> local = new ThreadLocal<>();
