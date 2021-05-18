@@ -120,6 +120,12 @@
             <version>0.14</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.74</version>
+        </dependency>
+
 <!--        <dependency>-->
 <!--            <groupId>org.opensaml</groupId>-->
 <!--            <artifactId>opensaml</artifactId>-->
@@ -129,13 +135,6 @@
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-boot-starter</artifactId>
-            <!--解决guava冲突 -->
-<!--            <exclusions>-->
-<!--            <exclusion>-->
-<!--                <groupId>com.google.guava</groupId>-->
-<!--                <artifactId>guava</artifactId>-->
-<!--            </exclusion>-->
-<!--            </exclusions>-->
             <version>3.0.0</version>
         </dependency>
 
@@ -146,6 +145,11 @@
             <version>3.0.2</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>easyexcel</artifactId>
+            <version>2.2.6</version>
+        </dependency>
     </dependencies>
 
     <build>
