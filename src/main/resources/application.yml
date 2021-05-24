@@ -1,0 +1,110 @@
+spring:
+    datasource:
+        dynamic:
+            primary: master
+            strict: false
+            datasource:
+                master:
+                    driver-class-name: com.mysql.cj.jdbc.Driver
+                    url: jdbc:mysql://127.0.0.1:3306/fc_sit?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+                    username: xmtx
+                    password: xmtx1234
+                    sql-script-encoding: UTF-8
+                    druid:
+                        max-active: 1000
+                        min-idle: 50
+                        max-wait: 10000
+                        #pool-prepared-statements:
+                        #max-pool-prepared-statement-per-connection-size:
+                        #max-open-prepared-statements:  #和上面的等价
+                        validation-query: SELECT 1 FROM DUAL
+                        #validation-query-timeout: 30000
+                        test-on-borrow: false
+                        test-on-return: false
+                        test-while-idle: true
+                        #time-between-eviction-runs-millis: 6000
+                        #min-evictable-idle-time-millis: 30000
+                        #max-evictable-idle-time-millis: 60000
+                        filters: slf4j
+                        filter:
+                            slf4j:
+                                statement-logger-name: com.kpmg.rms.datasource.statement
+                                connection-logger-name: com.kpmg.rms.datasource.connection
+                                result-set-logger-name: com.kpmg.rms.datasource.result
+                                data-source-logger-name: com.kpmg.rms.datasource.data
+                                ## 是否开启 StatFilter，默认 false（https://github.com/alibaba/druid/wiki/%E9%85%8D%E7%BD%AE_LogFilter）
+                                enabled: true
+                                ## datasource log 的总开关，前置条件：druid.sql.DataSource 的日志级别为 debug
+                                ## 无调用者
+                                data-source-log-enabled: false
+                                ## connection log 的总开关，前置条件：druid.sql.Connection 的日志级别为 debug
+                                connection-log-enabled: false
+                                ## connection error log 的总开关，前置条件：druid.sql.Connection 的日志级别为 debug
+                                ## 无调用者
+                                connection-log-error-enabled: false
+                                ### 无调用者
+                                connection-connect-before-log-enabled: false
+                                ### {conn-410001} connected
+                                ### {conn-410001} pool-connect
+                                connection-connect-after-log-enabled: false
+                                ### {conn-410001} pool-recycle
+                                ### {conn-410001} closed
+                                connection-close-after-log-enabled: false
+                                ### 无调用者
+                                connection-commit-after-log-enabled: false
+                                ### 无调用者
+                                connection-rollback-after-log-enabled: false
+                                ## statement log 的总开关，前置条件：druid.sql.Statement 的日志级别为 debug
+                                statement-log-enabled: false
+                                ## statement sql 输出选项，可以开启多个
+                                statement-sql-format-option:
+                                    ### 关键字大写
+                                    upp-case: false
+                                    ### 表名不敏感
+                                    desensitize: false
+                                    ### 格式化
+                                    pretty-format: true
+                                    ### 参数化，column=?
+                                    parameterized: false
+                                ## statement sql 格式化选项
+                                statement-sql-pretty-format: true
+                                ### {conn-410001, pstmt-420002} created. $sql
+                                statement-create-after-log-enabled: false
+                                ### {conn-410001, pstmt-420002} Parameters :[]
+                                ### {conn-410001, pstmt-420002} Types :[]
+                                statement-parameter-set-log-enabled: true
+                                ### {conn-410001, pstmt-420002} executed. $executable-sql
+                                statement-executable-sql-log-enable: true
+                                ### {conn-410001, pstmt-420002} executed. 2.073044 millis. $sql
+                                statement-execute-after-log-enabled: false
+                                ### {conn-410001, pstmt-420002} closed
+                                statement-close-after-log-enabled: false
+                                ### {conn-410001, pstmt-420002} clearParameters.
+                                statement-parameter-clear-log-enable: false
+                                ## result-set log 的总开关，前置条件：druid.sql.ResultSet 的日志级别为 debug
+                                result-set-log-enabled: true
+                                ### {conn-410001, pstmt-420000, rs-450000} open
+                                ### {conn-410001, pstmt-420000, rs-450000} Header: []
+                                result-set-open-after-log-enabled: false
+                                ### {conn-410001, pstmt-420000, rs-450000} Result: []
+                                result-set-next-after-log-enabled: true
+                                ### {conn-410001, pstmt-420000, rs-450000} closed
+                                result-set-close-after-log-enabled: false
+                                ## statement error log 的总开关
+                                ## {conn-410001, pstmt-420002} executed error.
+                                statement-log-error-enabled: true
+                                ## result-set error log 的总开关
+                                ## 无调用者，LogFilter#isResultSetLogErrorEnabled
+                                result-set-log-error-enabled: true
+                            stat:
+                                enabled: false
+knife4j:
+    enable: true
+server:
+    contextPath: /test
+    port: 8080
+springfox:
+    documentation:
+        swagger-ui:
+            enabled: true
+
