@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.example.demo.AspectBean;
+import com.example.demo.entity.UserInfo;
 import com.example.demo.service.AspectService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -46,5 +47,14 @@ public class AspectController {
     @GetMapping(value = "/init")
     public boolean init() {
         return aspectService.init();
+    }
+
+
+    @GetMapping(value = "/basic")
+    public String basic() {
+        UserInfo userInfo = new UserInfo();
+        userInfo.setField4("243535236");
+        System.out.println(userInfo.toString());
+        return userInfo.toString();
     }
 }

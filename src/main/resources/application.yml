@@ -102,7 +102,7 @@ knife4j:
     enable: true
 server:
     contextPath: /test
-    port: 8080
+    port: 8089
 springfox:
     documentation:
         swagger-ui:
